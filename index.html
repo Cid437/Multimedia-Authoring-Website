@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="layouts/style.css">
 </head>
 
 <body>
 
-<header>
-<h1>Multimedia & Authoring website</h1>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="site-logo" href="index.html">Multimedia & Authoring</a>
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="Portfolio/index.html">Portfolio</a>
+        </nav>
+    </div>
 </header>
 
-<div class="container">
+<main>
+    <section class="hero">
+        <div class="container hero-content">
+            <p class="eyebrow">My website</p>
+            <h1>Multimedia & Authoring</h1>
+            <p class="hero-text">sample sample sample sample sample sample</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="Portfolio/index.html">View Portfolio</a>
+                <a class="btn btn-secondary" href="about.html">About me</a>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h2>Welcome</h2>
-
-<h3>Hello! This is the beginning of my Multimedia & Authoring website.</h3>
-
-<p>
-Writing the skeleton html code for now..
-</p>
-</div>
+    <section class="featured-cards container">
+        <div class="card card-sample">
+            <h3>Demo 1</h3>
+            <p>test test test test test test test test</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Demo 2</h3>
+            <p>test test test test test test test test</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Demo 3</h3>
+            <p>test test test test test test test test</p>
+        </div>
+    </section>
+</main>
 
 <footer>
-<p>&copy; 2026 Donn Xydney G. Torres BSIT-NS-2A. All rights reserved.</p>
+    <div class="container footer-inner">
+        <p>&copy; 2026 Donn Xydney G. Torres BSIT-NS-2A. All rights reserved.</p>
+    </div>
 </footer>
 
 </body>
