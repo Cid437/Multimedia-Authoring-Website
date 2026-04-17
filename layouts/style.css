@@ -71,11 +71,10 @@ footer {
 }
 
 .site-nav a:hover {
-    color: var(--neutral-light);
+    color: var(--accent);
 }
 
 .hero {
-    background: linear-gradient(180deg, rgba(0, 123, 255, 0.267) 0%, var(--neutral-dark) 100%);
     padding: 4rem 0;
 }
 
@@ -114,6 +113,60 @@ footer {
     gap: 1rem;
 }
 
+.circle {
+    position: absolute; /* take it out of normal flow */
+    top: -100px;        /* adjust placement */
+    transform: translateX(-50%); /* true centering */
+    width: 600px;
+    aspect-ratio: 1/1;
+    background: linear-gradient(
+        rgba(20, 202, 238, 0.5) 0%,
+        rgba(41, 116, 221, 0.8) 40%,
+        rgba(126, 26, 247, 0.8) 100%
+    );
+    border-radius: 30% 70% 70% 30% / 30% 40% 70% 70%;
+    filter: blur(50px);
+    z-index: -1;
+    animation: rotateShape 11s linear infinite,
+               moveShape 13s ease-in-out infinite,
+               changeShape 15s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+    .circle {
+        width: 60vw;   /* slightly larger relative to screen */
+        filter: blur(40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .circle {
+        width: 80vw;   /* fills more of the narrow screen */
+        top: -50px;    /* reduce vertical offset */
+        filter: blur(30px); /* softer glow */
+    }
+}
+
+@keyframes rotateShape {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes moveShape {
+    0%, 100% { transform: translate(20%, 0); }
+    25% { transform: translate(0%, 10vh); }
+    50% { transform: translate(20%, 20vh); }
+    75% { transform: translate(40%, 30vh); }
+}
+
+@keyframes changeShape {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 40% 70% 70%; }
+    20% { border-radius: 40% 65% 50% 50% / 40% 35% 35% 65%; }
+    40% { border-radius: 35% 65% 65% 35% / 35% 40% 60% 60%; }
+    60% { border-radius: 40% 65% 50% 50% / 30% 30% 70% 75%; }
+    80% { border-radius: 40% 60% 40% 60% / 50% 50% 70% 60%; }
+}
+
 .btn {
     display: inline-block;
     padding: 0.95rem 1.8rem;
@@ -132,9 +185,17 @@ footer {
     color: #fff;
 }
 
+.btn-primary:hover {
+    background-color: var(--accent);
+}
+
 .btn-secondary {
     background-color: var(--neutral-light);
     color: var(--neutral-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bright);
 }
 
 .featured-cards {
@@ -256,7 +317,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header nav {
+    .site-nav {
         flex-direction: column;
         gap: 0.5rem;
     }
