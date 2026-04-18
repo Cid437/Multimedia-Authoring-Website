@@ -224,8 +224,8 @@ footer {
     align-items: center;
     text-align: center;
 
-    background: var(--light);
-    border: 1px solid var(--bright);
+    background: var(--neutral-dark);
+    border: 1px solid var(--dark);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -253,12 +253,12 @@ footer {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--neutral-dark);
+    color: var(--light);
 }
 
 .card-showcase p {
     font-size: 1rem;
-    color: #555;
+    color: var(---neutral-light);
     line-height: 1.5;
     max-width: 80%; 
 }
@@ -270,8 +270,8 @@ footer {
     align-items: center;
     gap: 2rem;
     
-    background: var(--neutral-light);
-    border: 1px solid var(--bright);
+    background: var(--neutral-dark);
+    border: 1px solid var(--dark);
     border-radius: 5px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     padding: 2rem;
@@ -296,19 +296,19 @@ footer {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--neutral-dark);
+    color: var(--neutral-light);
 }
 
 .profile-card h4 {
     font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 1rem;
-    color: #777;
+    color: var(--neutral-light);
 }
 
 .profile-card p {
     font-size: 1rem;
-    color: #555;
+    color: var(--neutral-light);
     line-height: 1.6;
 }
 
