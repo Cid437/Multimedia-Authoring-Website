@@ -206,11 +206,32 @@ footer {
 }
 
 .card-sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
     background-color: var(--dark);
     border: 1px solid var(--accent);
     padding: 1.75rem;
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.card-sample img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.card-sample iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1rem;
 }
 
 .card-sample h3 {
