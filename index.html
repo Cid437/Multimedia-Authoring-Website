@@ -8,22 +8,32 @@
     <title>Home page | Multimedia & Authoring</title>
     <link rel="stylesheet" href="layouts/style.css">
 </head>
-
 <body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#">Back</a></li>
+      <li><a href="Portfolio/rotoscope.html">Rotoscope</a></li>
+      <li><a href="Portfolio/rotoscopeProgress.html">Rotoscope Progress</a></li>
+      <li><a href="Portfolio/solarsystem.html">Solar System</a></li>
+      <li><a href="Portfolio/solarsystemProgress.html">Solar System Progress</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Donn Torres</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li onclick=showSidebar()><a href="#">Portfolio</a></li>
+    </ul>
+  </nav>
 
-<header class="site-header">
-    <div class="container header-inner">
-        <a class="site-logo" href="index.html">Multimedia & Authoring</a>
-        <nav class="site-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="Portfolio/solarsystem.html">Solar System</a>
-            <a href="Portfolio/solarsystemProgress.html">Solar System Progress</a>
-            <a href="Portfolio/rotoscope.html">Rotoscope</a>
-            <a href="Portfolio/rotoscopeProgress.html">Rotoscope Progress</a>
-        </nav>
-    </div>
-</header>
+  <script>
+  const sidebar = document.querySelector('.sidebar')
+  function showSidebar() {
+    sidebar.style.display = 'flex'
+  }
+  function hideSidebar() {
+    sidebar.style.display = 'none'
+  }
+  </script>
 
 <main>
     <section class="hero">

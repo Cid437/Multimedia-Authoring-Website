@@ -29,7 +29,6 @@ footer {
     background-color: var(--dark);
     color: var(--neutral-light);
     text-align: center;
-    padding: 1.5rem;
     border-top: 2px solid var(--accent);
     font-size: 0.9rem;
 }
@@ -39,39 +38,83 @@ footer {
     margin: auto;
 }
 
-.site-header {
-    background-color: var(--dark);
-    border-bottom: 2px solid var(--accent);
+nav{
+  background-color: var(--dark);
+  box-shadow: 3px 3px 5px rgba(59, 59, 59, 0.1);
+  border-bottom: 2px solid var(--accent);
 }
 
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  list-style: none;
 }
 
-.site-logo {
-    color: var(--neutral-light);
-    text-decoration: none;
-    font-size: 1.35rem;
-    font-weight: bold;
+nav li {
+  height: 50px;
 }
 
-.site-nav {
-    display: flex;
-    gap: 1.5rem;
+nav a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 30px;
+  color: var(--neutral-light);
+  text-decoration: none;
 }
 
-.site-nav a {
-    color: var(--neutral-light);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.25s ease;
+nav a:hover {
+  background-color: #f0f0f052;
 }
 
-.site-nav a:hover {
-    color: var(--accent);
+nav li:first-child {
+  margin-right: auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.082);
+  backdrop-filter: blur(12px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .sidebar {
+    width: 100%;
+  }
 }
 
 .hero {
@@ -372,9 +415,16 @@ footer {
 .progress-card {
     background: var(--dark);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 2.5rem;
     border: 1px solid var(--bright);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card video {
+  max-width: 100%;
+  height: auto; 
+  display: block;
+  border-radius: 8px;
 }
 
 .progress-card:hover {
@@ -386,8 +436,8 @@ footer {
     display: inline-block;
     background: var(--accent);
     color: var(--light);
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
+    padding: 0.05rem 0.85rem;
+    border-radius: 3px;
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
