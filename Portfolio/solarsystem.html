@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About me page">
+    <meta name="author" content="Donn Xydney G. Torres">
+    <title>solar system page | Multimedia & Authoring</title>
+    <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#">Back</a></li>
+      <li><a href="rotoscope.html">Rotoscope</a></li>
+      <li><a href="solarsystem.html">Solar System</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Donn Torres</a></li>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li onclick=showSidebar()><a href="#">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <script>
+  const sidebar = document.querySelector('.sidebar')
+  function showSidebar() {
+    sidebar.style.display = 'flex'
+  }
+  function hideSidebar() {
+    sidebar.style.display = 'none'
+  }
+  </script>
+
+<main>
+<div class="container">
+   <div class="card">
+       <h2>Welcome</h2>
+       <h3>This page shows my Solar System model made from blender</h3>
+            <p>Down below shows the models and age calculation based on planets in the solar system</p>
+   </div>
+        <section class="featured-cards container">
+            <div class="card card-showcase">
+                <h3>Solar system</h3>
+                    <video controls width="250">
+                        <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Earthmp4.mp4" type="video/mp4">
+                    </video>
+                <p>test test test test...</p>
+            </div>
+         </section>
+    </div>
+
+    <section class="featured-cards container">
+        <div class="card card-sample">
+            <h3>Sun</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Sunmp4.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Mercury</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Mercurymp4.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+    </section>
+
+    <section class="featured-cards container">
+        <div class="card card-sample">
+            <h3>Venus</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Venusmp4.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Earth</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Earthmp4.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+    </section>
+
+    <section class="featured-cards container">
+        <div class="card card-sample">
+            <h3>Mars</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Marsmp4.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Jupiter</h3>
+            <p>This is the section for my solar system model</p>
+        </div>
+    </section>
+
+    <section class="featured-cards container">
+        <div class="card card-sample">
+            <h3>Saturn</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/neptune.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+        <div class="card card-sample">
+            <h3>Uranus</h3>
+                <video controls width="250">
+                    <source src="https://cid437.github.io/Multimedia-Authoring-Website/videos/Uranus.mp4" type="video/mp4">
+                </video>
+            <p>This is the section for my solar system model</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <p>&copy; 2026 Donn Xydney G. Torres BSIT-NS-2A. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
