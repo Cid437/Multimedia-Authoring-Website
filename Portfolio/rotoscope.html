@@ -3,180 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About me page">
-    <meta name="author" content="Donn Xydney G. Torres">
-    <title>Rotoscope page | Multimedia & Authoring</title>
+    <meta name="description" content="Multimedia and Authoring portfolio homepage">
+    <title>Multimedia and Authoring Portfolio</title>
     <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
-  <nav>
-    <ul class="sidebar">
-      <li onclick=hideSidebar()><a href="#">Back</a></li>
-      <li><a href="rotoscope.html">Rotoscope</a></li>
-      <li><a href="solarsystem.html">Solar System</a></li>
-    </ul>
-    <ul>
-      <li><a href="#">Donn Torres</a></li>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li onclick=showSidebar()><a href="#">Portfolio</a></li>
-    </ul>
-  </nav>
-
-  <script>
-  const sidebar = document.querySelector('.sidebar')
-  function showSidebar() {
-    sidebar.style.display = 'flex'
-  }
-  function hideSidebar() {
-    sidebar.style.display = 'none'
-  }
-  </script>
-
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html">Multimedia & Authoring</a>
+            <nav class="site-nav">
+                <a href="../index.html">About</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="solarsystem.html">Solar System</a>
+            </nav>
+            <a class="btn btn-ghost" href="https://github.com/Cid437" target="_blank">Follow me on Github!</a>
+        </div>
+    </header>
 <main>
-<div class="container">
-   <div class="card">
-       <h2>Welcome</h2>
-       <h3>Hello! This is the beginning of my Multimedia & Authoring website.</h3>
-            <p>Writing the skeleton html code for now..</p>
-   </div>
-        <section class="featured-cards container">
-            <div class="card card-showcase">
-                <h3>1 minute rotoscope</h3>
-                    <video controls width="250">
-                        <source src="https://cid437.github.io/Multimedia-Authoring-Website/public/videos/clip1.mp4" type="video/mp4">
-                    </video>
-                <p>Disclaimer: "This video features creative rotoscoping and animation based on original footage. The original footage is used for transformative, artistic purposes under Section 107 of the Copyright Act 1976 (Fair Use). All rights to the original footage belong to the original creator."</p>
-            </div>
-         </section>
-    </div>
 
-    <section class="featured-cards container">
-        <div class="card card-sample">
-            <h3>Find Source video</h3>
-                <iframe 
+    <section id="portfolio" class="portfolio">
+            <div class="container section-head">
+                <p class="section-label">Portfolio</p>
+                <h2>How I did it: Rotoscope Project</h2>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Capcut</button>
+                <button class="filter-btn">Adobe After effects</button>
+                <button class="filter-btn">Blender</button>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <iframe 
                     src="https://www.youtube.com/embed/jlKgkgKo91U"
                     title="The source video for rotoscoping"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
-            <p>Select source video with a time duration of one minute and a human subject</p>
-        </div>
-        <div class="card card-sample">
-            <h3>Cut the video in 5 second intervals</h3>
-            <img src="../images/2-SplitVidCC.png" alt="Sample Image" width="500">
-            <p>Use proper editing tools and prepare the layout and timing</p>
-        </div>
-        <div class="card card-sample">
-            <h3>Use Rotoscope tools like adobe after effects</h3>
-            <img src="../images/clip2ss.png" alt="Sample Image" width="500">
-            <p>Using adobe after effects for rotoscoping</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <section class="progress-section">
-            <h2>Weekly Progress</h2>
-            <div class="progress-grid">
-                <article class="progress-card">
-                    <div class="week-number">Week 1</div>
-                    <h3>Progress 1</h3>
-                    <video controls width="250">
-                        <source src="../public/videos/clip1.mp4" type="video/mp4">
-                    </video>
-                    <p>This is the first progress of my rotoscoping video</p>
-                    <span class="status completed">Completed</span>
+                    <div class="portfolio-card-body">
+                        <h3>Source video</h3>
+                        <span>This is my source video for the rotoscope project.</span>
+                    </div>
                 </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 2</div>
-                    <h3>Progress 2</h3>
-                    <video controls width="250">
-                        <source src="../public/videos/clip2.mp4" type="video/mp4">
-                    </video>
-                    <p>This is the second progress of my rotoscoping video</p>
-                    <span class="status completed">Completed</span>
+                <article class="portfolio-card">
+                        <img src="../public/images/clip1ss.png" alt="Segmented video clip">
+                    <div class="portfolio-card-body">
+                        <h3>Segmentation
+                        <span>Cut the video into 5 second clips for easier rotoscoping.</span>
+                    </div>
                 </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 3</div>
-                    <h3>blank</h3>
-                     <video controls width="250">
-                        <source src="../public/videos/clip3.mp4" type="video/mp4">
-                    </video>
-                    <p>this is the week 3 progress</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 4</div>
-                    <h3>week 4</h3>
-                    <video controls width="250">
-                        <source src="../public/videos/clip4.mp4" type="video/mp4">
-                    </video>
-                    <p>4th progress</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 5</div>
-                    <h3>week 5</h3>
-                    <video controls width="250">
-                        <source src="../public/videos/clip5.mp4" type="video/mp4">
-                    </video>
-                    <p>5th progress</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 6</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 7</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 8</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 9</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 10</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 11</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
-                </article>
-                <article class="progress-card">
-                    <div class="week-number">Week 12</div>
-                    <h3>blank</h3>
-                    <p>blank blank</p>
-                    <span class="status completed">blank</span>
+                <article class="portfolio-card">
+                        <img src="../public/images/clip2ss.png" alt="Rotoscoped video clip">
+                    <div class="portfolio-card-body">
+                        <h3>Tools</h3>
+                        <span>use tools like Capcut, Adobe After Effects, and Blender to rotoscope the video.</span>
+                    </div>
                 </article>
             </div>
         </section>
-    </div>
 
+    <section id="portfolio" class="portfolio">
+            <div class="container section-head">
+                <p class="section-label">Portfolio</p>
+                <h2>Rotoscope Project</h2>
+                <p>This section showcases the progress and outcomes of the Rotoscope project.</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Capcut</button>
+                <button class="filter-btn">Adobe After effects</button>
+                <button class="filter-btn">Blender</button>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip1.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 1</h3>
+                        <span>Completed</span>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip2.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 2</h3>
+                        <span>Completed</span>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip3.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 3</h3>
+                        <span>Completed</span>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip4.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 4</h3>
+                        <span>Completed</span>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip5.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 5</h3>
+                        <span>Completed</span>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <video controls>
+                        <source src="../public/videos/clip1.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-card-body">
+                        <h3>Progress 6</h3>
+                        <span>In progress</span>
+                    </div>
+                </article>
+            </div>
+        </section>
 </main>
 
-<footer>
-    <div class="container footer-inner">
-        <p>&copy; 2026 Donn Xydney G. Torres BSIT-NS-2A. All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">MMA</div>
+            <div class="footer-nav">
+                <a href="../index.html">About</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="solarsystem.html">Solar System</a>
+            </div>
+            <div class="footer-meta">&copy; 2026 Donn Xydney G. Torres BSIT-NS-2A. All rights reserved.</div>
+        </div>
+    </footer>
 
 </body>
 </html>
