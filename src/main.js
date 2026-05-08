@@ -14,3 +14,7 @@ button.addEventListener('click', () => {
   count += 1;
   button.textContent = `Count: ${count}`;
 });
+
+
+// main.js
+import './style.css';
