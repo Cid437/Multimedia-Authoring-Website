@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const ageInput = document.getElementById('age-input');
     const calculateBtn = document.getElementById('calculate-btn');
     const planets = [
-        { name: 'Sun', orbitalPeriod: 1, video: 'Sunmp4.mp4' }, // Assuming 1 for Sun
-        { name: 'Mercury', orbitalPeriod: 0.24, video: 'Mercurymp4.mp4' },
-        { name: 'Venus', orbitalPeriod: 0.62, video: 'Venusmp4.mp4' },
-        { name: 'Earth', orbitalPeriod: 1, video: 'Earthmp4.mp4' },
-        { name: 'Mars', orbitalPeriod: 1.88, video: 'Marsmp4.mp4' },
-        { name: 'Jupiter', orbitalPeriod: 11.86, video: 'fclip1.mp4' }, // Placeholder, assuming available
-        { name: 'Saturn', orbitalPeriod: 29.46, video: 'fclip2.mp4' },
+        { name: 'Sun', orbitalPeriod: 1, video: 'sun.mp4' }, // Assuming 1 for Sun
+        { name: 'Mercury', orbitalPeriod: 0.24, video: 'mercury.mp4' },
+        { name: 'Venus', orbitalPeriod: 0.62, video: 'venus.mp4' },
+        { name: 'Earth', orbitalPeriod: 1, video: 'earth.mp4' },
+        { name: 'Moon', orbitalPeriod: 0.0748, video: 'moon.mp4', parent: 'Earth' },
+        { name: 'Mars', orbitalPeriod: 1.88, video: 'mars.mp4' },
+        { name: 'Jupiter', orbitalPeriod: 11.86, video: 'jupiter.mp4' }, // Placeholder, assuming available
+        { name: 'Saturn', orbitalPeriod: 29.46, video: 'saturn.mp4' },
         { name: 'Uranus', orbitalPeriod: 84.01, video: 'uranus.mp4' },
         { name: 'Neptune', orbitalPeriod: 164.8, video: 'neptune.mp4' }
     ];
