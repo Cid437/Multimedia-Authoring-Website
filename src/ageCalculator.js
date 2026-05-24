@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Uranus', orbitalPeriod: 84.01, video: 'uranus.mp4' },
         { name: 'Neptune', orbitalPeriod: 164.8, video: 'neptune.mp4' }
     ];
+    // Populate static planet info fields (orbital period, etc.) if present
+    planets.forEach((planet) => {
+        const key = planet.name.toLowerCase();
+        const infoEl = document.getElementById(`info-${key}`);
+        if (infoEl) {
+            infoEl.textContent = `Orbital period: ${planet.orbitalPeriod} Earth year(s)`;
+        }
+    });
+
+    if (!calculateBtn || !ageInput) return;
 
     calculateBtn.addEventListener('click', () => {
         const earthAge = parseFloat(ageInput.value);
@@ -21,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        planets.forEach((planet, index) => {
+        planets.forEach((planet) => {
             const planetAge = (earthAge / planet.orbitalPeriod).toFixed(2);
             const ageSpan = document.getElementById(`age-${planet.name.toLowerCase()}`);
             if (ageSpan) {

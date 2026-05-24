@@ -1,17 +1,16 @@
 import './style.css';
 
-const app = document.querySelector('#app');
+function attachClickById(id, href) {
+    const el = document.getElementById(id);
 
-app.innerHTML = `
-  <h1>Vite Template</h1>
-  <p>You're ready to build with Vite.</p>
-  <button id="count">Count: 0</button>
-`;
+    if (!el) return;
 
-const button = document.querySelector('#count');
-let count = 0;
-button.addEventListener('click', () => {
-  count += 1;
-  button.textContent = `Count: ${count}`;
-});
+    el.style.cursor = 'pointer';
 
+    el.addEventListener('click', () => {
+        window.location.href = href;
+    });
+}
+
+attachClickById('roto', './Portfolio/rotoscope.html');
+attachClickById('solar', './Portfolio/solarsystem.html');
