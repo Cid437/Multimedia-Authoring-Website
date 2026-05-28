@@ -34,6 +34,13 @@ img {
     display: block;
 }
 
+iframe, video {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
 video {
     max-width: 100%;
     display: block;
