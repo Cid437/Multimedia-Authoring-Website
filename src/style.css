@@ -118,10 +118,20 @@ textarea {
     color: #08090b;
 }
 
+.btn-primary:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.06);
+}
+
 .btn-secondary {
     border: 1px solid rgba(255,255,255,0.12);
     background: rgba(255,255,255,0.06);
     color: #fdfdfd;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,123,255,0.4);
 }
 
 .btn-ghost {
@@ -431,6 +441,7 @@ textarea {
 
 .portfolio-card:hover {
     transform: translateY(-6px);
+    border-color: rgba(0,123,255,0.4);
 }
 
 .portfolio-card-body {
