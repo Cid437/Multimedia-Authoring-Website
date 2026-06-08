@@ -457,6 +457,68 @@ textarea {
     font-size: 0.9rem;
 }
 
+.planet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* always 2 per row */
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.planet-card {
+    background: #000; /* dark background */
+    color: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 200px 1fr; /* video + text */
+    gap: 1.5rem;
+    align-items: center;
+    margin: 1rem auto;
+    max-width: 900px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.planet-card video {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* circular video frame */
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.planet-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.planet-card .planet-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.planet-card .age-display {
+    display: block;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #ffd700; /* gold accent for age */
+}
+
+.planet-card .planet-info {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
 /* Age Calculator Styles */
 .age-calculator {
     margin-top: 2rem;
@@ -634,5 +696,16 @@ textarea {
 
     .hero-copy h1 {
         font-size: 3.2rem;
+    }
+
+@media (max-width: 700px) {
+    .planet-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .planet-card video {
+        margin: 0 auto 1rem;
+    }
     }
 }
