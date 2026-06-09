@@ -459,7 +459,7 @@ textarea {
 
 .planet-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* always 2 per row */
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 2rem;
     max-width: 1200px;
@@ -467,12 +467,12 @@ textarea {
 }
 
 .planet-card {
-    background: #000; /* dark background */
+    background: #000;
     color: #fff;
     border-radius: 20px;
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 200px 1fr; /* video + text */
+    grid-template-columns: 200px 1fr;
     gap: 1.5rem;
     align-items: center;
     margin: 1rem auto;
@@ -489,7 +489,7 @@ textarea {
 .planet-card video {
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* circular video frame */
+    border-radius: 50%;
     object-fit: cover;
     border: 3px solid rgba(255,255,255,0.2);
 }
@@ -511,7 +511,7 @@ textarea {
     display: block;
     font-weight: bold;
     margin: 0.5rem 0;
-    color: #ffd700; /* gold accent for age */
+    color: #ffd700;
 }
 
 .planet-card .planet-info {
@@ -699,13 +699,16 @@ textarea {
     }
 
 @media (max-width: 700px) {
-    .planet-card {
+    .planet-grid {
         grid-template-columns: 1fr;
+    }
+
+    .planet-card {
         text-align: center;
     }
 
     .planet-card video {
         margin: 0 auto 1rem;
     }
-    }
+}
 }
