@@ -1,98 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multimedia and Authoring portfolio homepage">
-    <title>Multimedia and Authoring Portfolio</title>
-    <link rel="stylesheet" href="src/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Multimedia and Authoring portfolio homepage">
+<title>Multimedia and Authoring Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="index.html">Multimedia & Authoring</a>
-            <nav class="site-nav">
-                <a href="index.html">About</a>
-                <a href="Portfolio/rotoscope.html">Rotoscope</a>
-                <a href="Portfolio/solarsystem.html">Solar System</a>
-            </nav>
-            <a class="btn btn-ghost" href="https://github.com/Cid437" target="_blank">Follow me on Github!</a>
-        </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-grid">
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand"><span class="rec-dot" aria-hidden="true"></span>Multimedia &amp; Authoring</a>
+        <nav class="site-nav">
+            <a href="index.html">About</a>
+            <a href="Portfolio/rotoscope.html">Rotoscope</a>
+            <a href="Portfolio/solarsystem.html">Solar System</a>
+        </nav>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/Cid437" target="_blank" rel="noopener">Follow on GitHub</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="viewfinder">
+                <span class="vf-corner vf-tl" aria-hidden="true"></span>
+                <span class="vf-corner vf-tr" aria-hidden="true"></span>
+                <span class="vf-corner vf-bl" aria-hidden="true"></span>
+                <span class="vf-corner vf-br" aria-hidden="true"></span>
+
+                <p class="timecode" id="timecode" aria-hidden="true">00:00:00:00</p>
+
                 <div class="hero-copy">
-                    <p class="eyebrow">HI, I AM</p>
+                    <p class="eyebrow">BSIT-NS-2A &middot; Multimedia &amp; Authoring</p>
                     <h1>Donn Torres</h1>
                     <p class="hero-title">IT Student</p>
-                    <p class="hero-text">A project portfolio focused on multimedia and authoring</p>
+                    <p class="hero-text">A project portfolio focused on multimedia and authoring &mdash; frame-by-frame rotoscope animation and a hand-built solar system.</p>
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="Portfolio/rotoscope.html">Rotoscope</a>
-                        <a class="btn btn-secondary" href="Portfolio/solarsystem.html">Solar System</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <strong>Editing Tools</strong>
-                            <span>Adobe After Effects, Blender, Capcut</span>
-                        </div>
-                        <div class="stat-card">
-                            <strong>Deployment</strong>
-                            <span>Github pages</span>
-                        </div>
-                        <div class="stat-card">
-                            <strong>Languages</strong>
-                            <span>HTML, CSS, JavaScript</span>
-                        </div>
+                        <a class="btn btn-primary" href="Portfolio/rotoscope.html">Watch Rotoscope</a>
+                        <a class="btn btn-secondary" href="Portfolio/solarsystem.html">Explore Solar System</a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="hero-circle"></div>
-                    <div class="hero-image-frame">
-                        <img src="public/images/rotoSolar.png" alt="Designer portrait">
+
+                <div class="spec-strip">
+                    <div class="spec-item">
+                        <span class="spec-label">Editing Tools</span>
+                        <span class="spec-value">After Effects &middot; Blender &middot; CapCut</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Deployment</span>
+                        <span class="spec-value">GitHub Pages</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Languages</span>
+                        <span class="spec-value">HTML &middot; CSS &middot; JavaScript</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="container section-head">
-                <p class="section-label">Services</p>
-                <h2>My Projects</h2>
-                <p>Projects for Multimedia and Authoring subject showcasing various multimedia and authoring techniques.</p>
-            </div>
-            <div class="services-grid">
-                <a href="./Portfolio/rotoscope.html" class="service-card-link">
-                <article id="roto" class="service-card">
-                    <h3>Rotoscope</h3>
-                    <img src="public/images/rotoSS.png" alt="Rotoscope project image">
-                    <p>This is my rotoscope animation.</p>
-                </article>
-                </a>
-                <a href="./Portfolio/solarsystem.html" class="service-card-link">
-                 <article class="service-card">
-                    <h3>Solar System</h3>
-                      <img src="public/images/solarSystemSS.png" alt="Solar System project image">
-                      <p>This is my solar system project.</p>
-                 </article>
-                </a>         
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">MMA</div>
-            <div class="footer-nav">
-                <a href="index.html">About</a>
-                <a href="Portfolio/rotoscope.html">Rotoscope</a>
-                <a href="Portfolio/solarsystem.html">Solar System</a>
-            </div>
-            <div class="footer-meta">&copy; 2026 Donn Torres BSIT-NS-2A. All rights reserved.</div>
         </div>
-    </footer>
-    <script type="module" src="/src/main.js"></script>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-label">Reel 01&ndash;02</p>
+                <h2>My Projects</h2>
+                <p>Two projects for Multimedia and Authoring, each showing a different technique: hand-traced rotoscope animation and a CSS/JS solar system.</p>
+            </div>
+
+            <div class="projects-grid">
+                <a class="project-card" href="Portfolio/rotoscope.html">
+                    <div class="project-thumb">
+                        <img src="public/images/rotoscope-thumb.png" alt="Still frame from the rotoscope animation project">
+                        <span class="project-play" aria-hidden="true">&#9658;</span>
+                        <span class="project-tag">REEL 01</span>
+                        <span class="project-progress"></span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Rotoscope</h3>
+                        <p>A frame-by-frame rotoscope animation traced over live footage.</p>
+                    </div>
+                </a>
+
+                <a class="project-card" href="Portfolio/solarsystem.html">
+                    <div class="project-thumb">
+                        <img src="public/images/solarsystem-thumb.png" alt="Preview of the solar system project">
+                        <span class="project-play" aria-hidden="true">&#9658;</span>
+                        <span class="project-tag">REEL 02</span>
+                        <span class="project-progress"></span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Solar System</h3>
+                        <p>An interactive solar system built with HTML, CSS, and JavaScript.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span class="footer-brand">Multimedia &amp; Authoring</span>
+        <nav class="footer-nav">
+            <a href="index.html">About</a>
+            <a href="Portfolio/rotoscope.html">Rotoscope</a>
+            <a href="Portfolio/solarsystem.html">Solar System</a>
+        </nav>
+        <span class="footer-meta">&copy; 2026 Donn Torres &middot; BSIT-NS-2A. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var el = document.getElementById('timecode');
+    if (!el || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var frame = 0;
+    function pad(n) { return n.toString().padStart(2, '0'); }
+    setInterval(function () {
+        frame++;
+        var f = frame % 24;
+        var s = Math.floor(frame / 24) % 60;
+        var m = Math.floor(frame / (24 * 60)) % 60;
+        var h = Math.floor(frame / (24 * 60 * 60));
+        el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s) + ':' + pad(f);
+    }, 1000 / 24);
+})();
+</script>
+
 </body>
 </html>

@@ -4,49 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Multimedia and Authoring portfolio homepage">
-    <title>Multimedia and Authoring Portfolio</title>
+    <title>Rotoscope &vert; Multimedia and Authoring Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container header-inner">
-            <a class="brand" href="../index.html">Multimedia & Authoring</a>
+            <a class="brand" href="../index.html"><span class="rec-dot" aria-hidden="true"></span>Multimedia &amp; Authoring</a>
             <nav class="site-nav">
                 <a href="../index.html">About</a>
                 <a href="rotoscope.html">Rotoscope</a>
                 <a href="solarsystem.html">Solar System</a>
             </nav>
-            <a class="btn btn-ghost" href="https://github.com/Cid437" target="_blank">Follow me on Github!</a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/Cid437" target="_blank" rel="noopener">Follow on GitHub</a>
         </div>
     </header>
+
 <main>
-    <section id="portfolio" class="portfolio">
-            <div class="container section-head">
-                <p class="section-label">Portfolio</p>
-                <h2>How I did it: Rotoscope Project</h2>
+
+    <section class="hero">
+        <div class="container">
+            <div class="section-head">
+                <p class="section-label">Reel 01</p>
+                <h2>Rotoscope &vert; Final Cut</h2>
+                <p>Frame-by-frame rotoscope animation traced over live footage, finished in After Effects and CapCut.</p>
             </div>
-            <div class="hero-visual">
-                <div class="hero-circle"></div>
-                <div class="hero-image-frame">
-                     <video controls>
-                       <source src="../public/videos/ffull.mp4" type="video/mp4">
-                     </video>
-                </div>
-            </div><br>
+
+            <p class="now-playing"><span class="rec-dot" aria-hidden="true"></span><span id="rs-timecode">00:00:00:00</span> &middot; Now Playing</p>
+
+            <div class="viewfinder viewfinder--media">
+                <span class="vf-corner vf-tl" aria-hidden="true"></span>
+                <span class="vf-corner vf-tr" aria-hidden="true"></span>
+                <span class="vf-corner vf-bl" aria-hidden="true"></span>
+                <span class="vf-corner vf-br" aria-hidden="true"></span>
+                <video controls>
+                    <source src="../public/videos/ffull.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="portfolio">
+        <div class="container section-head">
+            <p class="section-label">Step 01&ndash;08</p>
+            <h2>How I Did It</h2>
+            <p>The workflow behind the rotoscope project, from source footage to finished cut.</p>
+        </div>
+
+        <div class="container">
             <div class="portfolio-filters">
                 <button class="filter-btn active">All</button>
-                <button class="filter-btn">Capcut</button>
-                <button class="filter-btn">Adobe After effects</button>
+                <button class="filter-btn">CapCut</button>
+                <button class="filter-btn">Adobe After Effects</button>
                 <button class="filter-btn">Blender</button>
             </div>
+
             <div class="portfolio-grid">
                 <article class="portfolio-card">
-                    <iframe 
-                    src="https://www.youtube.com/embed/jlKgkgKo91U"
-                    title="The source video for rotoscoping"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
+                    <span class="chip-mono corner">Step 01</span>
+                    <iframe
+                        src="https://www.youtube.com/embed/jlKgkgKo91U"
+                        title="The source video for rotoscoping"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
                     </iframe>
                     <div class="portfolio-card-body">
                         <h3>Source video</h3>
@@ -54,202 +78,243 @@
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/cut5.png" alt="Segmented video clip">
+                    <span class="chip-mono corner">Step 02</span>
+                    <img src="../public/images/cut5.png" alt="Segmented video clip">
                     <div class="portfolio-card-body">
                         <h3>Segmentation</h3>
                         <span>Cut the video into 5 second clips for easier rotoscoping.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/one1.png" alt="Rotoscoped video clip">
+                    <span class="chip-mono corner">Step 03</span>
+                    <img src="../public/images/one1.png" alt="Rotoscoped video clip">
                     <div class="portfolio-card-body">
                         <h3>Edit</h3>
-                        <span>Set up the rotoscope project in your chosen editing tool</span>
+                        <span>Set up the rotoscope project in your chosen editing tool.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/two1.png" alt="Rotoscoped video clip">
+                    <span class="chip-mono corner">Step 04</span>
+                    <img src="../public/images/two1.png" alt="Rotoscoped video clip">
                     <div class="portfolio-card-body">
                         <h3>Dissect</h3>
-                        <span>Divide the chosen reference to several layers</span>
+                        <span>Divide the chosen reference into several layers.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/addfinae.png" alt="Rotoscoped video clip">
+                    <span class="chip-mono corner">Step 05</span>
+                    <img src="../public/images/addfinae.png" alt="Rotoscoped video clip">
                     <div class="portfolio-card-body">
                         <h3>Effects</h3>
-                        <span>adjust the effects to enhance the rotoscoped video</span>
+                        <span>Adjust the effects to enhance the rotoscoped video.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/addfinae.png" alt="Rotoscoped video clip">
+                    <span class="chip-mono corner">Step 06</span>
+                    <img src="../public/images/addfinae.png" alt="Rotoscoped video clip">
                     <div class="portfolio-card-body">
                         <h3>Videos</h3>
-                        <span>use tools like Capcut and put the finished output for editing</span>
+                        <span>Use tools like CapCut to put together the finished output.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/addly.png" alt="Lyrics video clip">
+                    <span class="chip-mono corner">Step 07</span>
+                    <img src="../public/images/addly.png" alt="Lyrics video clip">
                     <div class="portfolio-card-body">
                         <h3>Lyrics</h3>
                         <span>Put lyrics on the video.</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
-                        <img src="../public/images/addc.png" alt="Comparison video clip">
+                    <span class="chip-mono corner">Step 08</span>
+                    <img src="../public/images/addc.png" alt="Comparison video clip">
                     <div class="portfolio-card-body">
                         <h3>Comparison</h3>
-                        <span>add original video for comparison</span>
+                        <span>Add the original video for comparison.</span>
                     </div>
                 </article>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <section id="portfolio" class="portfolio">
-            <div class="container section-head">
-                <p class="section-label">Portfolio</p>
-                <h2>Rotoscope Progress</h2>
-                <p>This section showcases the progress and outcomes of the Rotoscope project.</p>
-            </div>
+    <section id="progress" class="portfolio">
+        <div class="container section-head">
+            <p class="section-label">Clip 01&ndash;13</p>
+            <h2>Progress Reel</h2>
+            <p>Individual rotoscope clips, tracked from first pass to finished frame.</p>
+        </div>
+
+        <div class="container">
             <div class="portfolio-filters">
                 <button class="filter-btn active">All</button>
-                <button class="filter-btn">Capcut</button>
-                <button class="filter-btn">Adobe After effects</button>
-                <button class="filter-btn">Blender</button>
+                <button class="filter-btn">Completed</button>
+                <button class="filter-btn">In progress</button>
             </div>
+
             <div class="portfolio-grid">
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 01</span>
                     <video controls>
                         <source src="../public/videos/fclip1.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 1</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 02</span>
                     <video controls>
                         <source src="../public/videos/fclip2.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 2</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 03</span>
                     <video controls>
                         <source src="../public/videos/fclip3.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 3</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 04</span>
                     <video controls>
                         <source src="../public/videos/fclip4.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 4</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 05</span>
                     <video controls>
                         <source src="../public/videos/fclip5.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 5</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 06</span>
                     <video controls>
                         <source src="../public/videos/fclip6.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 6</h3>
-                        <span>In progress</span>
+                        <span class="status-chip is-progress">In progress</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 07</span>
                     <video controls>
                         <source src="../public/videos/fclip7.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 7</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 08</span>
                     <video controls>
                         <source src="../public/videos/fclip8.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 8</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 09</span>
                     <video controls>
                         <source src="../public/videos/fclip9.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 9</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 10</span>
                     <video controls>
                         <source src="../public/videos/fclip10.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 10</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 11</span>
                     <video controls>
                         <source src="../public/videos/fclip11.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 11</h3>
-                        <span>Completed</span>
+                        <span class="status-chip is-done">Completed</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 12</span>
                     <video controls>
                         <source src="../public/videos/fclip12.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 12</h3>
-                        <span>In progress</span>
+                        <span class="status-chip is-progress">In progress</span>
                     </div>
                 </article>
                 <article class="portfolio-card">
+                    <span class="chip-mono corner">Clip 13</span>
                     <video controls>
                         <source src="../public/videos/fclip13.mp4" type="video/mp4">
                     </video>
                     <div class="portfolio-card-body">
                         <h3>Progress 13</h3>
-                        <span>In progress</span>
+                        <span class="status-chip is-progress">In progress</span>
                     </div>
                 </article>
             </div>
-        </section>
+        </div>
+    </section>
+
 </main>
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div class="footer-brand">MMA</div>
-            <div class="footer-nav">
+            <span class="footer-brand">Multimedia &amp; Authoring</span>
+            <nav class="footer-nav">
                 <a href="../index.html">About</a>
                 <a href="rotoscope.html">Rotoscope</a>
                 <a href="solarsystem.html">Solar System</a>
-            </div>
-            <div class="footer-meta">&copy; 2026 Donn Torres BSIT-NS-2A. All rights reserved.</div>
+            </nav>
+            <span class="footer-meta">&copy; 2026 Donn Torres &middot; BSIT-NS-2A. All rights reserved.</span>
         </div>
     </footer>
 
+    <script>
+    (function () {
+        var el = document.getElementById('rs-timecode');
+        if (!el || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+        var frame = 0;
+        function pad(n) { return n.toString().padStart(2, '0'); }
+        setInterval(function () {
+            frame++;
+            var f = frame % 24;
+            var s = Math.floor(frame / 24) % 60;
+            var m = Math.floor(frame / (24 * 60)) % 60;
+            var h = Math.floor(frame / (24 * 60 * 60));
+            el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s) + ':' + pad(f);
+        }, 1000 / 24);
+    })();
+    </script>
 </body>
 </html>
