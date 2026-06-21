@@ -1075,18 +1075,177 @@ textarea {
 }
 
 /* ============================================================
-   Dragon cursor
+   Dragon cursor — desktop / mouse only
+   pointer: fine  = real mouse or trackpad
+   pointer: coarse = finger / stylus on touch screen
    ============================================================ */
-* {
-    cursor: none !important;
+@media (pointer: fine) {
+    * {
+        cursor: none !important;
+    }
+
+    #dragon-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 99999;
+    }
 }
 
-#dragon-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 99999;
+/* ============================================================
+   Python code panel  (solar system page)
+   ============================================================ */
+.code-section {
+    padding: 3.5rem 0 5rem;
+}
+
+.code-panel {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: #05060a;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), 0 40px 90px rgba(0, 0, 0, 0.38);
+}
+
+/* top bar */
+.code-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    user-select: none;
+}
+
+/* traffic-light dots */
+.code-panel-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.code-panel-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.code-panel-dots span:nth-child(1) { background: #e2554a; opacity: 0.7; }
+.code-panel-dots span:nth-child(2) { background: #e2974a; opacity: 0.7; }
+.code-panel-dots span:nth-child(3) { background: #2f9d93; opacity: 0.7; }
+
+/* filename chip */
+.code-panel-filename {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: #9a9fab;
+    flex: 1;
+}
+
+.code-panel-filename svg {
+    color: #2f9d93;
+    flex-shrink: 0;
+}
+
+/* copy button */
+.code-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: #9a9fab;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 0.3rem 0.65rem;
+    cursor: pointer;
+    transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.code-copy-btn:hover {
+    color: #f3f1ea;
+    border-color: rgba(47, 157, 147, 0.4);
+    background: rgba(47, 157, 147, 0.08);
+}
+
+.code-copy-btn.copied {
+    color: #2f9d93;
+    border-color: rgba(47, 157, 147, 0.5);
+    background: rgba(47, 157, 147, 0.1);
+}
+
+/* scrollable code area */
+.code-panel-body {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 560px;
+}
+
+/* custom scrollbar */
+.code-panel-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.code-panel-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.code-panel-body::-webkit-scrollbar-thumb {
+    background: rgba(47, 157, 147, 0.25);
+    border-radius: 999px;
+}
+
+.code-panel-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(47, 157, 147, 0.45);
+}
+
+/* the <pre> itself */
+.code-pre {
+    margin: 0;
+    padding: 1.5rem 1.75rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #9a9fab;
+    white-space: pre;
+    tab-size: 4;
+    outline: none;
+}
+
+/* Python syntax colour tokens — apply these classes inside <code>
+   when you paste your script.  A simple find-replace or a tiny
+   highlight pass is enough:
+     .py-kw   → keywords (import, def, for, if, return, …)
+     .py-fn   → function / class names after def/class
+     .py-bi   → builtins (print, range, len, …) & bpy references
+     .py-str  → string literals
+     .py-num  → numeric literals
+     .py-cm   → comments  */
+.py-kw  { color: #7766ee; }
+.py-fn  { color: #22ccaa; }
+.py-bi  { color: #2f9d93; }
+.py-str { color: #88cc66; }
+.py-num { color: #e2974a; }
+.py-cm  { color: #3d4455; font-style: italic; }
+
+@media (max-width: 720px) {
+    .code-pre {
+        font-size: 0.74rem;
+        padding: 1.1rem 1rem;
+    }
 }

@@ -1,4 +1,9 @@
 (function () {
+  /* Skip entirely on touch-primary devices (phones, tablets).
+     matchMedia pointer:fine is true only when a real mouse/trackpad
+     is the primary input — it's false on touch screens.            */
+  if (window.matchMedia && !window.matchMedia('(pointer: fine)').matches) return;
+
   const canvas = document.createElement('canvas');
   canvas.id = 'dragon-cursor';
   document.body.appendChild(canvas);
@@ -148,6 +153,12 @@
     ctx.restore();
   }
 
+  /*
+   * The triangle is drawn with its tip at local (L, 0).
+   * We pass in `anchorX/anchorY` which is trail[0] offset so
+   * that (anchorX + cos(angle)*L, anchorY + sin(angle)*L) == mouse.
+   * In other words: anchor = mouse - tip_offset_in_world_space.
+   */
   function drawTriangleHead(anchorX, anchorY, angle, sz) {
     ctx.save();
     ctx.translate(anchorX, anchorY);
@@ -237,11 +248,21 @@
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    /*
+     * Compute the head angle first so we can derive the anchor.
+     * The tip must sit exactly on mouse, so:
+     *   anchor = mouse - (cos(angle) * TIP, sin(angle) * TIP)
+     *
+     * We approximate angle from the previous frame's trail[0] → mouse
+     * direction, then place the anchor so the tip hits mouse.
+     */
     const rawAngle = Math.atan2(
       mouse.y - trail[0].y,
       mouse.x - trail[0].x
     );
 
+    /* Target position for trail[0] = tip position minus the
+       offset that places the tip at mouse */
     const targetX = mouse.x - Math.cos(rawAngle) * HEAD_TIP_OFFSET;
     const targetY = mouse.y - Math.sin(rawAngle) * HEAD_TIP_OFFSET;
 
