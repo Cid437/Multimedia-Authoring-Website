@@ -779,127 +779,395 @@ a {
 }
 
 /* ============================================================
-   Planet cards (Solar System page)
+   Planet Stage — full interactive display replacing the grid
    ============================================================ */
-.planet-grid {
+ 
+/* Orbit selector strip */
+.orbit-selector-wrap {
+    overflow-x: auto;
+    padding: 2rem 0 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+ 
+.orbit-selector-wrap::-webkit-scrollbar {
+    display: none;
+}
+ 
+.orbit-selector {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    min-width: max-content;
+    margin: 0 auto;
+    padding: 0 3rem;
+    gap: 0;
+}
+ 
+.orbit-track-line {
+    position: absolute;
+    bottom: 2.1rem;
+    left: 3rem;
+    right: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(47, 157, 147, 0.35) 15%, rgba(47, 157, 147, 0.35) 85%, transparent);
+    pointer-events: none;
+}
+ 
+.planet-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1.1rem 0;
+    color: #666b76;
+    transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+ 
+.planet-node-tag {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1;
+}
+ 
+.planet-node-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid #666b76;
+    background: transparent;
+    transition: border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 0.15rem;
+}
+ 
+.planet-node-name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: 0.01em;
+    padding-bottom: 0.4rem;
+}
+ 
+.planet-node:hover {
+    color: #9a9fab;
+}
+ 
+.planet-node:hover .planet-node-dot {
+    border-color: rgba(47, 157, 147, 0.6);
+}
+ 
+.planet-node.is-active {
+    color: #f3f1ea;
+}
+ 
+.planet-node.is-active .planet-node-tag {
+    color: #2f9d93;
+}
+ 
+.planet-node.is-active .planet-node-dot {
+    background: #2f9d93;
+    border-color: #2f9d93;
+    box-shadow: 0 0 10px rgba(47, 157, 147, 0.7);
+}
+ 
+/* Planet stage panel */
+.planet-stage-section {
+    padding: 0 0 4rem;
+}
+ 
+.planet-stage-wrap {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.025);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 24px 56px rgba(0, 0, 0, 0.32);
+}
+ 
+/* Teal top bar — like a video monitor header */
+.planet-stage-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(47, 157, 147, 0.07);
+    gap: 1rem;
+}
+ 
+.planet-stage-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2f9d93;
+}
+ 
+.planet-stage-bar-right {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: #666b76;
+}
+ 
+.planet-stage-inner {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    padding: 2rem 2rem 2.25rem;
+    align-items: center;
+}
+ 
+/* Left — planet video in orbit ring */
+.planet-stage-media {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: grid;
+    place-items: center;
     margin: 0 auto;
 }
-
-.planet-card {
-    background: #05060a;
-    color: #f3f1ea;
-    border-radius: 22px;
-    padding: 1.5rem;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    margin: 1rem auto;
-    max-width: 900px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.28);
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+ 
+.planet-orbit-ring {
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    border: 1px dashed rgba(47, 157, 147, 0.28);
+    animation: spin-ring 22s linear infinite;
+    pointer-events: none;
 }
-
-.planet-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 24px 56px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(226, 151, 74, 0.25);
-    border-color: rgba(226, 151, 74, 0.3);
+ 
+.planet-orbit-ring::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2f9d93;
+    box-shadow: 0 0 10px rgba(47, 157, 147, 0.9), 0 0 20px rgba(47, 157, 147, 0.5);
 }
-
-.planet-card video {
-    width: 200px;
-    height: 200px;
+ 
+@keyframes spin-ring {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+ 
+.planet-stage-video {
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 0 40px rgba(47, 157, 147, 0.18), 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.2s ease;
 }
-
-.planet-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+ 
+.planet-stage-video.is-switching {
+    opacity: 0;
+}
+ 
+/* Right — info readout */
+.planet-stage-info {
+    display: grid;
+    gap: 1rem;
+}
+ 
+.planet-stage-name {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: opacity 0.2s ease;
 }
-
-.planet-card .planet-desc {
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.9;
-    margin-bottom: 0.5rem;
+ 
+.planet-stage-desc {
+    color: #9a9fab;
+    line-height: 1.7;
+    font-size: 0.97rem;
+    transition: opacity 0.2s ease;
 }
-
-.planet-card .age-display {
+ 
+.planet-stage-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+ 
+.planet-stage-stat .spec-label {
     display: block;
-    font-weight: bold;
-    margin: 0.5rem 0;
-    color: #e2974a;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2f9d93;
+    margin-bottom: 0.35rem;
 }
-
-.planet-card .planet-info {
-    font-size: 0.95rem;
-    opacity: 0.8;
+ 
+.planet-stage-stat .spec-value {
+    color: #f3f1ea;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
-
-/* ============================================================
-   Age calculator
-   ============================================================ */
-.age-calculator {
-    margin-top: 2rem;
+ 
+.planet-stage-age-row {
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex-wrap: wrap;
 }
-
-.age-calculator label {
-    color: #f3f1ea;
+ 
+.planet-stage-age-label {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666b76;
+    white-space: nowrap;
+}
+ 
+.planet-stage-age-value {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.35rem;
     font-weight: 600;
+    color: #e2974a;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s ease;
+}
+ 
+/* Corner accents on the stage panel */
+.planet-stage-wrap::before,
+.planet-stage-wrap::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+    z-index: 2;
+}
+ 
+.planet-stage-wrap::before {
+    bottom: -1px;
+    left: -1px;
+    border-bottom: 2px solid #e2974a;
+    border-left: 2px solid #e2974a;
+    border-radius: 0 0 0 10px;
+}
+ 
+.planet-stage-wrap::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid #e2974a;
+    border-right: 2px solid #e2974a;
+    border-radius: 0 0 10px 0;
+}
+ 
+/* Hidden planet data pool (keeps IDs alive for ageCalculator.js) */
+.planet-data-pool {
+    display: none;
+}
+ 
+/* ============================================================
+   Age Calculator (inside planet stage)
+   ============================================================ */
+.age-calc-wrap {
+    display: grid;
+    gap: 0.5rem;
 }
 
-.age-calculator input {
+.age-calc-row {
+    display: flex;
+    align-items: stretch;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.age-calc-row input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    color: #f3f1ea;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
     padding: 0.75rem 1rem;
-    border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.035);
-    color: #f3f1ea;
-    font-size: 1rem;
-    min-width: 120px;
-}
-
-.age-calculator input:focus {
-    border-color: #2f9d93;
-    box-shadow: 0 0 0 2px rgba(47, 157, 147, 0.2);
-}
-
-.age-calculator button {
-    padding: 0.75rem 1.5rem;
-    border-radius: 18px;
-    background: #2f9d93;
-    color: #06080c;
     border: none;
-    font-weight: 700;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    min-width: 0;
+}
+
+.age-calc-row input::placeholder {
+    color: #3d4455;
+}
+
+.age-calc-row input:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.age-calc-btn {
+    background: #2f9d93;
+    color: #05060a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    padding: 0 1.25rem;
     cursor: pointer;
-    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    transition: background 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.age-calculator button:hover {
-    transform: translateY(-2px);
-    background: #267e76;
+.age-calc-btn:hover {
+    background: #3ab8ad;
 }
 
-.age-calculator .age-display {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #2f9d93;
-    font-weight: 600;
+.age-calc-result {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    background: rgba(47, 157, 147, 0.07);
+    border: 1px solid rgba(47, 157, 147, 0.18);
+}
+
+.age-calc-result-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666b76;
+    flex: 1;
+}
+
+.age-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #666b76;
 }
 
 /* ============================================================

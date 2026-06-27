@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Multimedia and Authoring portfolio homepage">
+    <meta name="description" content="Solar System project — Multimedia and Authoring portfolio">
     <title>Solar System &vert; Multimedia and Authoring Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
+
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="../index.html"><span class="rec-dot" aria-hidden="true"></span>Multimedia &amp; Authoring</a>
@@ -24,16 +25,18 @@
     </header>
 
 <main>
-
     <section class="hero">
         <div class="container">
             <div class="section-head">
                 <p class="section-label">Reel 02</p>
                 <h2>Solar System &vert; Source Reel</h2>
-                <p>An interactive solar system rendered in Blender using python code, with each planet rendered as its own short clip.</p>
+                <p>An interactive solar system rendered in Blender using Python, with each planet rendered as its own short clip.</p>
             </div>
 
-            <p class="now-playing"><span class="rec-dot" aria-hidden="true"></span><span id="ss-timecode">00:00:00:00</span> &middot; Now Playing</p>
+            <p class="now-playing">
+                <span class="rec-dot" aria-hidden="true"></span>
+                <span id="ss-timecode">00:00:00:00</span> &middot; Now Playing
+            </p>
 
             <div class="viewfinder viewfinder--media">
                 <span class="vf-corner vf-tl" aria-hidden="true"></span>
@@ -42,155 +45,168 @@
                 <span class="vf-corner vf-br" aria-hidden="true"></span>
                 <iframe
                     src="https://youtube.com/embed/mkorlv3Ty9g"
-                    title="The source video for the Solar System project"
+                    title="Solar System source reel"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
             </div>
-
-            <div class="age-calculator">
-                <label for="age-input">Enter your age on Earth:</label>
-                <input type="number" id="age-input" placeholder="e.g., 25">
-                <button id="calculate-btn" class="btn btn-primary">Calculate</button>
-            </div>
         </div>
     </section>
 
-    <section id="orbit-reel" class="portfolio">
+    <!-- =====================================================
+         Planet Stage
+         ===================================================== -->
+    <section class="planet-stage-section">
         <div class="container section-head">
-            <p class="section-label">Orbit 00&ndash;08</p>
+            <p class="section-label">Orbit 00&ndash;09</p>
             <h2>The Planets</h2>
-            <p>Every planet in orbital order, with your age converted to how long a year actually lasts there.</p>
+            <p>Select any body below. Your age converts to how many years you would have lived there.</p>
         </div>
 
-        <div class="container">
-            <div class="portfolio-filters">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">CapCut</button>
-                <button class="filter-btn">Adobe After Effects</button>
-                <button class="filter-btn">Blender</button>
+        <!-- Orbit selector track -->
+        <div class="orbit-selector-wrap">
+            <div class="orbit-selector" role="group" aria-label="Select a planet">
+                <div class="orbit-track-line" aria-hidden="true"></div>
+
+                <button class="planet-node is-active" data-planet="sun">
+                    <span class="planet-node-tag">Center</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Sun</span>
+                </button>
+                <button class="planet-node" data-planet="mercury">
+                    <span class="planet-node-tag">01</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Mercury</span>
+                </button>
+                <button class="planet-node" data-planet="venus">
+                    <span class="planet-node-tag">02</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Venus</span>
+                </button>
+                <button class="planet-node" data-planet="earth">
+                    <span class="planet-node-tag">03</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Earth</span>
+                </button>
+                <button class="planet-node" data-planet="mars">
+                    <span class="planet-node-tag">04</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Mars</span>
+                </button>
+                <button class="planet-node" data-planet="jupiter">
+                    <span class="planet-node-tag">05</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Jupiter</span>
+                </button>
+                <button class="planet-node" data-planet="saturn">
+                    <span class="planet-node-tag">06</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Saturn</span>
+                </button>
+                <button class="planet-node" data-planet="uranus">
+                    <span class="planet-node-tag">07</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Uranus</span>
+                </button>
+                <button class="planet-node" data-planet="neptune">
+                    <span class="planet-node-tag">08</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Neptune</span>
+                </button>
+                <button class="planet-node" data-planet="pluto">
+                    <span class="planet-node-tag">09</span>
+                    <span class="planet-node-dot" aria-hidden="true"></span>
+                    <span class="planet-node-name">Pluto</span>
+                </button>
             </div>
         </div>
 
-        <div class="planet-grid">
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/sun.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Center</span>
-                    <h3>Sun</h3>
-                    <p class="planet-desc" id="desc-sun">The Sun is the star at the center of our solar system, providing light and heat to all planets.</p>
-                    <span id="age-sun" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-sun"></p>
+        <!-- Stage panel -->
+        <div class="container">
+            <div class="planet-stage-wrap">
+                <!-- Top bar -->
+                <div class="planet-stage-bar">
+                    <div class="planet-stage-bar-left">
+                        <span class="rec-dot" aria-hidden="true"></span>
+                        OBSERVING &mdash; <span id="stage-status">SUN &middot; CENTER</span>
+                    </div>
+                    <div class="planet-stage-bar-right">
+                        BLENDER 4.x &middot; PYTHON &middot; CYCLES &middot; 640&times;360 &middot; 24fps
+                    </div>
                 </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/mercury.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 01</span>
-                    <h3>Mercury</h3>
-                    <p class="planet-desc" id="desc-mercury">Mercury is the smallest planet in our solar system and the closest to the Sun.</p>
-                    <span id="age-mercury" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-mercury"></p>
+
+                <!-- Body -->
+                <div class="planet-stage-inner">
+
+                    <!-- Left: video -->
+                    <div class="planet-stage-media">
+                        <div class="planet-orbit-ring" aria-hidden="true"></div>
+                        <video class="planet-stage-video" id="stage-video" autoplay muted loop playsinline>
+                            <source id="stage-source" src="../public/videos/sun.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- Right: info readout -->
+                    <div class="planet-stage-info">
+                        <div>
+                            <span class="chip-mono" id="stage-orbit">Center</span>
+                        </div>
+                        <h2 class="planet-stage-name" id="stage-name">Sun</h2>
+                        <p class="planet-stage-desc" id="stage-desc">
+                            The Sun is the star at the center of our solar system, providing light and heat to all planets.
+                        </p>
+
+                        <div class="planet-stage-stats">
+                            <div class="planet-stage-stat">
+                                <span class="spec-label">Orbital Period</span>
+                                <span class="spec-value" id="stage-period">N/A (Star)</span>
+                            </div>
+                            <div class="planet-stage-stat">
+                                <span class="spec-label">Avg. Distance</span>
+                                <span class="spec-value" id="stage-distance">0 AU</span>
+                            </div>
+                            <div class="planet-stage-stat">
+                                <span class="spec-label">Type</span>
+                                <span class="spec-value" id="stage-type">G-type Star</span>
+                            </div>
+                        </div>
+
+                        <div class="age-calc-wrap">
+                            <span class="planet-stage-age-label">Your age there</span>
+                            <div class="age-calc-row">
+                                <input
+                                    type="number"
+                                    id="age-input"
+                                    placeholder="Enter Earth age…"
+                                    min="1"
+                                    max="150"
+                                >
+                                <button class="age-calc-btn" id="calculate-btn">Calculate</button>
+                            </div>
+                            <div class="age-calc-result">
+                                <span class="age-calc-result-label">Age on this body</span>
+                                <span class="planet-stage-age-value" id="stage-age">—</span>
+                                <span class="age-display">yrs</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/venus.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 02</span>
-                    <h3>Venus</h3>
-                    <p class="planet-desc" id="desc-venus">Venus is the second planet from the Sun and the hottest planet in our solar system.</p>
-                    <span id="age-venus" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-venus"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/earth.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 03</span>
-                    <h3>Earth</h3>
-                    <p class="planet-desc" id="desc-earth">Earth is the third planet from the Sun and the only known celestial body to harbor life.</p>
-                    <span id="age-earth" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-earth"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/mars.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 04</span>
-                    <h3>Mars</h3>
-                    <p class="planet-desc" id="desc-mars">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</p>
-                    <span id="age-mars" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-mars"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/jupiter.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 05</span>
-                    <h3>Jupiter</h3>
-                    <p class="planet-desc" id="desc-jupiter">Jupiter is the fifth planet from the Sun and the largest in the Solar System.</p>
-                    <span id="age-jupiter" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-jupiter"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/saturn.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 06</span>
-                    <h3>Saturn</h3>
-                    <p class="planet-desc" id="desc-saturn">Saturn is the sixth planet from the Sun and the second-largest in the Solar System.</p>
-                    <span id="age-saturn" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-saturn"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/uranus.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 07</span>
-                    <h3>Uranus</h3>
-                    <p class="planet-desc" id="desc-uranus">Uranus is the seventh planet from the Sun and the third-largest in the Solar System.</p>
-                    <span id="age-uranus" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-uranus"></p>
-                </div>
-            </article>
-            <article class="planet-card">
-                <video autoplay muted loop playsinline>
-                    <source src="../public/videos/neptune.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="planet-card-body">
-                    <span class="chip-mono">Orbit 08</span>
-                    <h3>Neptune</h3>
-                    <p class="planet-desc" id="desc-neptune">Neptune is the eighth planet from the Sun and the fourth-largest in the Solar System.</p>
-                    <span id="age-neptune" class="age-display">Enter age to calculate</span>
-                    <p class="planet-info" id="info-neptune"></p>
-                </div>
-            </article>
+            </div>
+        </div>
+
+        <!-- Hidden data pool: IDs that ageCalculator.js populates -->
+        <div class="planet-data-pool" aria-hidden="true">
+            <span id="age-sun"></span>     <span id="info-sun"></span>     <span id="desc-sun"></span>
+            <span id="age-mercury"></span> <span id="info-mercury"></span> <span id="desc-mercury"></span>
+            <span id="age-venus"></span>   <span id="info-venus"></span>   <span id="desc-venus"></span>
+            <span id="age-earth"></span>   <span id="info-earth"></span>   <span id="desc-earth"></span>
+            <span id="age-mars"></span>    <span id="info-mars"></span>    <span id="desc-mars"></span>
+            <span id="age-jupiter"></span> <span id="info-jupiter"></span> <span id="desc-jupiter"></span>
+            <span id="age-saturn"></span>  <span id="info-saturn"></span>  <span id="desc-saturn"></span>
+            <span id="age-uranus"></span>  <span id="info-uranus"></span>  <span id="desc-uranus"></span>
+            <span id="age-neptune"></span> <span id="info-neptune"></span> <span id="desc-neptune"></span>
+            <span id="age-pluto"></span>   <span id="info-pluto"></span>   <span id="desc-pluto"></span>
         </div>
     </section>
 
@@ -711,6 +727,7 @@ camera.data.dof.aperture_fstop = <span class="py-num">4.0</span>
         </div>
     </footer>
 
+    <!-- Timecode counter -->
     <script>
     (function () {
         var el = document.getElementById('ss-timecode');
@@ -728,6 +745,7 @@ camera.data.dof.aperture_fstop = <span class="py-num">4.0</span>
     })();
     </script>
 
+    <!-- Copy button -->
     <script>
     (function () {
         var btn = document.getElementById('copy-btn');
@@ -739,16 +757,13 @@ camera.data.dof.aperture_fstop = <span class="py-num">4.0</span>
             navigator.clipboard.writeText(text).then(function () {
                 label.textContent = 'Copied!';
                 btn.classList.add('copied');
-                setTimeout(function () {
-                    label.textContent = 'Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
+                setTimeout(function () { label.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
             });
         });
     })();
     </script>
-
     <script src="../src/ageCalculator.js"></script>
     <script src="../src/dragonCursor.js"></script>
+    <script src="../src/controller.js"></script>    
 </body>
 </html>
