@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Jupiter', orbitalPeriod: 11.86, video: 'jupiter.mp4' },
         { name: 'Saturn', orbitalPeriod: 29.46, video: 'saturn.mp4' },
         { name: 'Uranus', orbitalPeriod: 84.01, video: 'uranus.mp4' },
-        { name: 'Neptune', orbitalPeriod: 164.8, video: 'neptune.mp4' }
+        { name: 'Neptune', orbitalPeriod: 164.8, video: 'neptune.mp4' },
+        { name: 'Pluto', orbitalPeriod: 248.0, video: 'pluto.mp4' }
     ];
     // Populate static planet info fields (orbital period, etc.) if present
     planets.forEach((planet) => {
