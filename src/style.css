@@ -32,17 +32,6 @@ body {
 
 /* ============================================================
    ORIGINAL EFFECT — Data Stream
-   -------------------------------------------------------
-   Concept: horizontal light streaks that travel left → right,
-   like signal pulses across an editing timeline or oscilloscope
-   traces. Visually distinct from vertical drop rain:
-     - Direction:  left → right   (not top → bottom)
-     - Shape:      wide flat ellipse 120×4px  (not 4×100px drop)
-     - Tile axis:  width varies per stream    (not height)
-     - Speed:      controlled by tile-width   (not tile-height)
-   Technique: same radial-gradient tiling trick as the previous
-   rain, but the axes are rotated 90°. 11 streams × 3 gradients
-   (left seam, right seam, glow dot) = 33 layers.
    ============================================================ */
 body::before {
     content: "";
@@ -52,27 +41,18 @@ body::before {
     pointer-events: none;
     opacity: 0.20;
     background-image:
-        /* Stream  1 — y 15px */
         radial-gradient(120px 4px at   0px  15px, #2f9d93, transparent),
         radial-gradient(120px 4px at 200px  15px, #2f9d93, transparent),
         radial-gradient(1.5px 1.5px at 100px 15px, #2f9d93 100%, transparent 150%),
-
-        /* Stream  2 — y 140px */
         radial-gradient(120px 4px at   0px 140px, #2f9d93, transparent),
         radial-gradient(120px 4px at 325px 140px, #2f9d93, transparent),
         radial-gradient(1.5px 1.5px at 162.5px 140px, #2f9d93 100%, transparent 150%),
-
-        /* Stream  3 — y 65px */
         radial-gradient(120px 4px at   0px  65px, #2f9d93, transparent),
         radial-gradient(120px 4px at 175px  65px, #2f9d93, transparent),
         radial-gradient(1.5px 1.5px at  87.5px 65px, #2f9d93 100%, transparent 150%),
-
-        /* Stream  4 — y 220px */
         radial-gradient(120px 4px at   0px 220px, #2f9d93, transparent),
         radial-gradient(120px 4px at 415px 220px, #2f9d93, transparent),
         radial-gradient(1.5px 1.5px at 207.5px 220px, #2f9d93 100%, transparent 150%),
-
-        /* Stream  5 — y 180px */
         radial-gradient(120px 4px at   0px 180px, #2f9d93, transparent),
         radial-gradient(120px 4px at 148px 180px, #2f9d93, transparent),
         radial-gradient(1.5px 1.5px at  74px 180px, #2f9d93 100%, transparent 150%);
@@ -92,11 +72,6 @@ body::before {
 }
 
 @keyframes data-stream {
-    /* Each stream's background-position is (x-stagger, 0).
-       Only X is animated — Y stays fixed so streaks hold
-       their horizontal lanes while traveling rightward.
-       Streams with smaller tile-widths complete more cycles
-       per animation and appear to move faster, creating depth. */
     0% {
         background-position:
             110px 0px,  113px 0px,  111.5px 1.5px,
@@ -561,7 +536,7 @@ a {
 }
 
 /* ============================================================
-   About / skills (kept for inner pages that may reuse them)
+   About / skills
    ============================================================ */
 .about {
     padding: 3rem 0;
@@ -617,7 +592,7 @@ a {
 }
 
 /* ============================================================
-   Portfolio grid / filters (kept for inner pages)
+   Portfolio grid / filters
    ============================================================ */
 .portfolio {
     padding: 3rem 0;
@@ -685,10 +660,7 @@ a {
 }
 
 /* ============================================================
-   Demo-page extras — reusable mono chips, status pills, and a
-   media variant of the viewfinder frame for embedding the
-   actual project videos/iframes on the Rotoscope and Solar
-   System pages.
+   Demo-page extras
    ============================================================ */
 .now-playing {
     display: inline-flex;
@@ -779,9 +751,9 @@ a {
 }
 
 /* ============================================================
-   Planet Stage — full interactive display replacing the grid
+   Planet Stage — full interactive display
    ============================================================ */
- 
+
 /* Orbit selector strip */
 .orbit-selector-wrap {
     overflow-x: auto;
@@ -789,11 +761,11 @@ a {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
- 
+
 .orbit-selector-wrap::-webkit-scrollbar {
     display: none;
 }
- 
+
 .orbit-selector {
     display: flex;
     align-items: flex-end;
@@ -803,7 +775,7 @@ a {
     padding: 0 3rem;
     gap: 0;
 }
- 
+
 .orbit-track-line {
     position: absolute;
     bottom: 2.1rem;
@@ -813,7 +785,7 @@ a {
     background: linear-gradient(90deg, transparent, rgba(47, 157, 147, 0.35) 15%, rgba(47, 157, 147, 0.35) 85%, transparent);
     pointer-events: none;
 }
- 
+
 .planet-node {
     display: flex;
     flex-direction: column;
@@ -827,7 +799,7 @@ a {
     transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
 }
- 
+
 .planet-node-tag {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.58rem;
@@ -836,7 +808,7 @@ a {
     transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1;
 }
- 
+
 .planet-node-dot {
     width: 9px;
     height: 9px;
@@ -848,7 +820,7 @@ a {
                 box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     margin-bottom: 0.15rem;
 }
- 
+
 .planet-node-name {
     font-size: 0.78rem;
     font-weight: 500;
@@ -856,37 +828,37 @@ a {
     letter-spacing: 0.01em;
     padding-bottom: 0.4rem;
 }
- 
+
 .planet-node:hover {
     color: #9a9fab;
 }
- 
+
 .planet-node:hover .planet-node-dot {
     border-color: rgba(47, 157, 147, 0.6);
 }
- 
+
 .planet-node.is-active {
     color: #f3f1ea;
 }
- 
+
 .planet-node.is-active .planet-node-tag {
     color: #2f9d93;
 }
- 
+
 .planet-node.is-active .planet-node-dot {
     background: #2f9d93;
     border-color: #2f9d93;
     box-shadow: 0 0 10px rgba(47, 157, 147, 0.7);
 }
- 
+
 /* Planet stage panel */
 .planet-stage-section {
     padding: 0 0 4rem;
 }
- 
+
 .planet-stage-wrap {
     position: relative;
-    max-width: 960px;
+    max-width: 1040px;
     margin: 0 auto;
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.07);
@@ -894,8 +866,8 @@ a {
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 24px 56px rgba(0, 0, 0, 0.32);
 }
- 
-/* Teal top bar — like a video monitor header */
+
+/* Teal top bar */
 .planet-stage-bar {
     display: flex;
     align-items: center;
@@ -905,7 +877,7 @@ a {
     background: rgba(47, 157, 147, 0.07);
     gap: 1rem;
 }
- 
+
 .planet-stage-bar-left {
     display: flex;
     align-items: center;
@@ -916,32 +888,36 @@ a {
     text-transform: uppercase;
     color: #2f9d93;
 }
- 
+
 .planet-stage-bar-right {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.06em;
     color: #666b76;
 }
- 
+
+/* ============================================================
+   CHANGED: wider left column + bigger planet circle
+   Old: grid-template-columns: 320px 1fr  |  media 280×280  |  video 260×260
+   New: grid-template-columns: 380px 1fr  |  media 360×360  |  video 340×340
+   ============================================================ */
 .planet-stage-inner {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 380px 1fr;
     gap: 2.5rem;
     padding: 2rem 2rem 2.25rem;
     align-items: center;
 }
- 
-/* Left — planet video in orbit ring */
+
 .planet-stage-media {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: 340px;
+    height: 340px;
     display: grid;
     place-items: center;
     margin: 0 auto;
 }
- 
+
 .planet-orbit-ring {
     position: absolute;
     inset: -22px;
@@ -950,7 +926,7 @@ a {
     animation: spin-ring 22s linear infinite;
     pointer-events: none;
 }
- 
+
 .planet-orbit-ring::before {
     content: "";
     position: absolute;
@@ -963,32 +939,32 @@ a {
     background: #2f9d93;
     box-shadow: 0 0 10px rgba(47, 157, 147, 0.9), 0 0 20px rgba(47, 157, 147, 0.5);
 }
- 
+
 @keyframes spin-ring {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
 }
- 
+
 .planet-stage-video {
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.14);
     box-shadow: 0 0 40px rgba(47, 157, 147, 0.18), 0 8px 32px rgba(0, 0, 0, 0.5);
     transition: opacity 0.2s ease;
 }
- 
+
 .planet-stage-video.is-switching {
     opacity: 0;
 }
- 
+
 /* Right — info readout */
 .planet-stage-info {
     display: grid;
     gap: 1rem;
 }
- 
+
 .planet-stage-name {
     font-family: 'Space Grotesk', 'Inter', sans-serif;
     font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -997,14 +973,14 @@ a {
     letter-spacing: -0.02em;
     transition: opacity 0.2s ease;
 }
- 
+
 .planet-stage-desc {
     color: #9a9fab;
     line-height: 1.7;
     font-size: 0.97rem;
     transition: opacity 0.2s ease;
 }
- 
+
 .planet-stage-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1013,7 +989,7 @@ a {
     border-top: 1px solid rgba(255, 255, 255, 0.07);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
- 
+
 .planet-stage-stat .spec-label {
     display: block;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
@@ -1023,19 +999,19 @@ a {
     color: #2f9d93;
     margin-bottom: 0.35rem;
 }
- 
+
 .planet-stage-stat .spec-value {
     color: #f3f1ea;
     font-size: 0.9rem;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
- 
+
 .planet-stage-age-row {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
- 
+
 .planet-stage-age-label {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 0.62rem;
@@ -1044,7 +1020,7 @@ a {
     color: #666b76;
     white-space: nowrap;
 }
- 
+
 .planet-stage-age-value {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 1.35rem;
@@ -1053,7 +1029,7 @@ a {
     letter-spacing: 0.02em;
     transition: opacity 0.2s ease;
 }
- 
+
 /* Corner accents on the stage panel */
 .planet-stage-wrap::before,
 .planet-stage-wrap::after {
@@ -1064,7 +1040,7 @@ a {
     pointer-events: none;
     z-index: 2;
 }
- 
+
 .planet-stage-wrap::before {
     bottom: -1px;
     left: -1px;
@@ -1072,7 +1048,7 @@ a {
     border-left: 2px solid #e2974a;
     border-radius: 0 0 0 10px;
 }
- 
+
 .planet-stage-wrap::after {
     bottom: -1px;
     right: -1px;
@@ -1080,12 +1056,12 @@ a {
     border-right: 2px solid #e2974a;
     border-radius: 0 0 10px 0;
 }
- 
-/* Hidden planet data pool (keeps IDs alive for ageCalculator.js) */
+
+/* Hidden planet data pool */
 .planet-data-pool {
     display: none;
 }
- 
+
 /* ============================================================
    Age Calculator (inside planet stage)
    ============================================================ */
@@ -1171,7 +1147,7 @@ a {
 }
 
 /* ============================================================
-   Contact (kept for inner pages)
+   Contact
    ============================================================ */
 .contact {
     padding: 3rem 0 4rem;
@@ -1268,7 +1244,7 @@ textarea {
 }
 
 /* ============================================================
-   Responsive
+   Responsive — general breakpoints
    ============================================================ */
 @media (max-width: 1024px) {
     .about-grid,
@@ -1332,6 +1308,99 @@ textarea {
     }
 }
 
+/* ============================================================
+   Planet Stage — responsive (mobile-first stacking)
+   ============================================================ */
+
+/* Medium: single column at 860px, video stays large */
+@media (max-width: 860px) {
+    .planet-stage-inner {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding: 1.75rem 1.25rem 2rem;
+    }
+
+    .planet-stage-media {
+        width: 280px;
+        height: 280px;
+    }
+
+    .planet-stage-video {
+        width: 260px;
+        height: 260px;
+    }
+
+    .planet-stage-wrap {
+        max-width: 100%;
+    }
+
+    .planet-stage-name {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+    }
+}
+
+/* Small: tighten everything for phones */
+@media (max-width: 520px) {
+    .planet-stage-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .planet-stage-bar-right {
+        font-size: 0.58rem;
+    }
+
+    .planet-stage-inner {
+        padding: 1.25rem 1rem 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .planet-stage-media {
+        width: 220px;
+        height: 220px;
+    }
+
+    .planet-stage-video {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Stats: wrap to 2 cols on very small screens */
+    .planet-stage-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    /* Third stat fills full width */
+    .planet-stage-stat:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    .planet-stage-name {
+        font-size: clamp(1.7rem, 9vw, 2.4rem);
+    }
+
+    .planet-stage-desc {
+        font-size: 0.9rem;
+    }
+
+    .age-calc-row input {
+        font-size: 0.85rem;
+        padding: 0.65rem 0.75rem;
+    }
+
+    .age-calc-btn {
+        padding: 0 1rem;
+        font-size: 0.68rem;
+    }
+
+    .planet-stage-age-value {
+        font-size: 1.1rem;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .rec-dot {
         animation: none;
@@ -1344,8 +1413,6 @@ textarea {
 
 /* ============================================================
    Dragon cursor — desktop / mouse only
-   pointer: fine  = real mouse or trackpad
-   pointer: coarse = finger / stylus on touch screen
    ============================================================ */
 @media (pointer: fine) {
     * {
@@ -1378,7 +1445,6 @@ textarea {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), 0 40px 90px rgba(0, 0, 0, 0.38);
 }
 
-/* top bar */
 .code-panel-header {
     display: flex;
     align-items: center;
@@ -1389,7 +1455,6 @@ textarea {
     user-select: none;
 }
 
-/* traffic-light dots */
 .code-panel-dots {
     display: flex;
     gap: 6px;
@@ -1407,7 +1472,6 @@ textarea {
 .code-panel-dots span:nth-child(2) { background: #e2974a; opacity: 0.7; }
 .code-panel-dots span:nth-child(3) { background: #2f9d93; opacity: 0.7; }
 
-/* filename chip */
 .code-panel-filename {
     display: inline-flex;
     align-items: center;
@@ -1424,7 +1488,6 @@ textarea {
     flex-shrink: 0;
 }
 
-/* copy button */
 .code-copy-btn {
     display: inline-flex;
     align-items: center;
@@ -1456,14 +1519,12 @@ textarea {
     background: rgba(47, 157, 147, 0.1);
 }
 
-/* scrollable code area */
 .code-panel-body {
     overflow-x: auto;
     overflow-y: auto;
     max-height: 560px;
 }
 
-/* custom scrollbar */
 .code-panel-body::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -1482,7 +1543,6 @@ textarea {
     background: rgba(47, 157, 147, 0.45);
 }
 
-/* the <pre> itself */
 .code-pre {
     margin: 0;
     padding: 1.5rem 1.75rem;
@@ -1495,15 +1555,6 @@ textarea {
     outline: none;
 }
 
-/* Python syntax colour tokens — apply these classes inside <code>
-   when you paste your script.  A simple find-replace or a tiny
-   highlight pass is enough:
-     .py-kw   → keywords (import, def, for, if, return, …)
-     .py-fn   → function / class names after def/class
-     .py-bi   → builtins (print, range, len, …) & bpy references
-     .py-str  → string literals
-     .py-num  → numeric literals
-     .py-cm   → comments  */
 .py-kw  { color: #7766ee; }
 .py-fn  { color: #22ccaa; }
 .py-bi  { color: #2f9d93; }
