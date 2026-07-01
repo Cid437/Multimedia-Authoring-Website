@@ -1431,140 +1431,114 @@ textarea {
 }
 
 /* ============================================================
-   Python code panel  (solar system page)
+   Downloads — techy file-drop grid (solar system page)
    ============================================================ */
 .code-section {
     padding: 3.5rem 0 5rem;
 }
 
-.code-panel {
-    border-radius: 16px;
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    counter-reset: dl;
+}
+
+.download-card {
+    counter-increment: dl;
+    position: relative;
+    display: grid;
+    gap: 0.6rem;
+    padding: 1.9rem 1.6rem 1.6rem;
+    border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.07);
-    background: #05060a;
-    overflow: hidden;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), 0 40px 90px rgba(0, 0, 0, 0.38);
-}
-
-.code-panel-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.1rem;
     background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    user-select: none;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.code-panel-dots {
+/* index tag, e.g. FILE_01 */
+.download-card::before {
+    content: "FILE_" counter(dl, decimal-leading-zero);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: #666b76;
+}
+
+/* corner bracket accent, teal by default */
+.download-card::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 26px;
+    height: 26px;
+    border-top: 2px solid #2f9d93;
+    border-right: 2px solid #2f9d93;
+    border-radius: 0 18px 0 0;
+    opacity: 0.55;
+    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.download-card:nth-child(2)::after { border-color: #e2974a; }
+.download-card:nth-child(3)::after { border-color: #e2554a; }
+
+.download-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
     display: flex;
-    gap: 6px;
-    flex-shrink: 0;
-}
-
-.code-panel-dots span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.code-panel-dots span:nth-child(1) { background: #e2554a; opacity: 0.7; }
-.code-panel-dots span:nth-child(2) { background: #e2974a; opacity: 0.7; }
-.code-panel-dots span:nth-child(3) { background: #2f9d93; opacity: 0.7; }
-
-.code-panel-filename {
-    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    color: #9a9fab;
-    flex: 1;
+    gap: 0.55rem;
 }
 
-.code-panel-filename svg {
+.download-card p {
+    color: #9a9fab;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* bottom status row: acts like a "download" affordance */
+.download-card .dl-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.4rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666b76;
+}
+
+.download-card .dl-arrow {
     color: #2f9d93;
-    flex-shrink: 0;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.code-copy-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.04em;
-    color: #9a9fab;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 0.3rem 0.65rem;
-    cursor: pointer;
-    transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                background 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-    flex-shrink: 0;
-}
-
-.code-copy-btn:hover {
-    color: #f3f1ea;
+.download-card:hover {
+    transform: translateY(-5px);
     border-color: rgba(47, 157, 147, 0.4);
-    background: rgba(47, 157, 147, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 24px 56px rgba(0, 0, 0, 0.32);
 }
 
-.code-copy-btn.copied {
-    color: #2f9d93;
-    border-color: rgba(47, 157, 147, 0.5);
-    background: rgba(47, 157, 147, 0.1);
+.download-card:hover::after {
+    opacity: 1;
 }
 
-.code-panel-body {
-    overflow-x: auto;
-    overflow-y: auto;
-    max-height: 560px;
+.download-card:hover .dl-arrow {
+    transform: translate(3px, 3px);
 }
-
-.code-panel-body::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-.code-panel-body::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.code-panel-body::-webkit-scrollbar-thumb {
-    background: rgba(47, 157, 147, 0.25);
-    border-radius: 999px;
-}
-
-.code-panel-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(47, 157, 147, 0.45);
-}
-
-.code-pre {
-    margin: 0;
-    padding: 1.5rem 1.75rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 0.82rem;
-    line-height: 1.75;
-    color: #9a9fab;
-    white-space: pre;
-    tab-size: 4;
-    outline: none;
-}
-
-.py-kw  { color: #7766ee; }
-.py-fn  { color: #22ccaa; }
-.py-bi  { color: #2f9d93; }
-.py-str { color: #88cc66; }
-.py-num { color: #e2974a; }
-.py-cm  { color: #3d4455; font-style: italic; }
 
 @media (max-width: 720px) {
-    .code-pre {
-        font-size: 0.74rem;
-        padding: 1.1rem 1rem;
+    .download-card {
+        padding: 1.5rem 1.25rem 1.35rem;
     }
 }
