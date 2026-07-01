@@ -758,12 +758,9 @@ a {
 .orbit-selector-wrap {
     overflow-x: auto;
     padding: 2rem 0 1.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-}
 
-.orbit-selector-wrap::-webkit-scrollbar {
-    display: none;
+    /* Standard CSS */
+    scrollbar-width: none;
 }
 
 .orbit-selector {
@@ -847,7 +844,7 @@ a {
 
 .planet-node.is-active .planet-node-dot {
     background: #2f9d93;
-    border-color: #2f9d93;
+    border-color: #2e948b;
     box-shadow: 0 0 10px rgba(47, 157, 147, 0.7);
 }
 
