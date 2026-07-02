@@ -1,4 +1,4 @@
-// for calculting planets age, sample
+/* jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', () => {
     const ageInput = document.getElementById('age-input');
     const calculateBtn = document.getElementById('calculate-btn');

@@ -215,13 +215,13 @@
         <div class="section-head">
             <p class="section-label">Project Files</p>
             <h2>Downloads</h2>
-            <p>Download the Blender project files and Python scripts used to generate the Solar System.</p>
+            <p>Click to download the Blender project files and Python scripts used to create the Solar System.</p>
         </div>
 
         <div class="download-grid">
 
             <a class="download-card"
-               href="https://drive.google.com/drive/folders/placeholder"
+               href="https://drive.google.com/drive/folders/1fzPTw8ZjggOoGz1VNB7hmKM5G-w1hhd1?usp=sharing"
                target="_blank"
                rel="noopener noreferrer">
                 <h3>📦 Complete Project</h3>
@@ -229,14 +229,14 @@
             </a>
 
             <a class="download-card"
-               href="../src/placeholder.zip"
+               href="../public/materials/scripts.zip"
                download>
                 <h3>🐍 Python Script</h3>
                 <p>Main Blender Python script used to generate the solar system.</p>
             </a>
 
             <a class="download-card"
-               href="../src/placeholder.zip"
+               href="../public/materials/blender.zip"
                download>
                 <h3>🎬 Blender Scene</h3>
                 <p>The complete Blender scene with materials and animations.</p>
@@ -278,23 +278,6 @@
     })();
     </script>
 
-    <!-- Copy button -->
-    <script>
-    (function () {
-        var btn = document.getElementById('copy-btn');
-        var label = document.getElementById('copy-label');
-        var block = document.getElementById('code-block');
-        if (!btn || !block) return;
-        btn.addEventListener('click', function () {
-            var text = block.innerText || block.textContent;
-            navigator.clipboard.writeText(text).then(function () {
-                label.textContent = 'Copied!';
-                btn.classList.add('copied');
-                setTimeout(function () { label.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
-            });
-        });
-    })();
-    </script>
     <script src="../src/ageCalculator.js"></script>
     <script src="../src/dragonCursor.js"></script>
     <script src="../src/controller.js"></script>    

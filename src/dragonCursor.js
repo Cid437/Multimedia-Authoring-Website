@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function () {
   /* Skip entirely on touch-primary devices (phones, tablets).
      matchMedia pointer:fine is true only when a real mouse/trackpad

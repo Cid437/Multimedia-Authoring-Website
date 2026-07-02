@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 (function () {
         var planets = {
             sun:     { orbit:'Center',   video:'../public/videos/sun.mp4',     status:'SUN \u00b7 CENTER',      period:'N/A (Star)',       distance:'0 AU',     type:'G-type Star',      desc:'The Sun is the star at the center of our solar system, providing light and heat to all planets.' },
@@ -46,8 +47,8 @@
 
                 /* Sync age if already calculated */
                 var ageEl = document.getElementById('age-' + key);
-                stageAge.textContent = (ageEl && ageEl.textContent.trim())
-                    ? ageEl.textContent.trim()
+                stageAge.textContent = (ageEl && ageEl.textContent.trim()) ?
+                    ageEl.textContent.trim()
                     : 'Enter age above';
 
                 /* Fade back in */
