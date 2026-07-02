@@ -114,6 +114,7 @@ video {
     aspect-ratio: 16 / 9;
     height: auto;
     display: block;
+    border: 0;
 }
 
 button,
@@ -210,60 +211,104 @@ a {
 }
 
 /* ============================================================
-   Buttons
+   Buttons — techy
    ============================================================ */
 .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
-    padding: 0.95rem 1.75rem;
-    text-decoration: none;
+    font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
     font-weight: 700;
-    letter-spacing: 0.02em;
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.9rem 1.9rem;
+    border-radius: 2px;
+    /* angled corners instead of a pill */
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s ease,
+                background-color 0.25s ease,
+                color 0.25s ease;
+}
+
+/* scan-line sweep on hover */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+.btn:hover::before {
+    transform: translateX(120%);
+}
+
+/* corner brackets — top-left via ::after, bottom-right needs a .tick span */
+.btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid currentColor;
+    border-left: 2px solid currentColor;
+    opacity: 0.9;
+}
+.btn .tick {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    opacity: 0.9;
 }
 
 .btn-sm {
     padding: 0.6rem 1.15rem;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
 }
 
 .btn-primary {
     background: #2f9d93;
     color: #06080c;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 0 0 1px rgba(47, 157, 147, 0.5), 0 0 24px rgba(47, 157, 147, 0.25);
 }
-
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 0 1px rgba(47, 157, 147, 0.35), 0 20px 48px rgba(47, 157, 147, 0.22);
+    box-shadow: 0 0 0 1px #4fc9bd, 0 0 8px rgba(79, 201, 189, 0.8), 0 0 40px rgba(47, 157, 147, 0.5);
 }
 
 .btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.05);
     color: #f3f1ea;
+    box-shadow: 0 0 0 1px rgba(226, 151, 74, 0.35);
 }
-
 .btn-secondary:hover {
     transform: translateY(-3px);
-    border-color: rgba(226, 151, 74, 0.45);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.28);
+    color: #e2974a;
+    box-shadow: 0 0 0 1px #e2974a, 0 0 24px rgba(226, 151, 74, 0.35);
 }
 
 .btn-ghost {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: #f3f1ea;
     background: transparent;
+    color: #f3f1ea;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
 }
-
 .btn-ghost:hover {
     transform: translateY(-2px);
-    border-color: rgba(47, 157, 147, 0.4);
+    color: #2f9d93;
+    box-shadow: 0 0 0 1px rgba(47, 157, 147, 0.6), 0 0 20px rgba(47, 157, 147, 0.2);
 }
 
 /* ============================================================
